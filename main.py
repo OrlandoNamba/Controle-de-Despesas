@@ -1,7 +1,16 @@
 from tkinter import*
 from tkinter import Tk, StringVar, ttk
-from tkinter import messagebox
+from tkinter import messagebox 
+
+# Importando Pillow
 from PIL import Image, ImageTk
+
+# Importando barra de progresso do Tlinter
+from tkinter.ttk import Progressbar
+
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 ################# cores ###############
 co0 = "#2e2d2b"  # Preta
@@ -41,13 +50,18 @@ frame_gra_2 = Frame(frameMeio, width=580, height=250, bg=co2)
 frame_gra_2.place(x=415, y=5)
 
 # Abrindo a imagem
-app_img = Image.open('.\img\log.png')
+app_img = Image.open('./img/log.png')
 app_img = app_img.resize((45, 45))
 app_img = ImageTk.PhotoImage(app_img)
 
 app_logo = Label(frameCima, image=app_img, text=" Orçamento Pessoal", width=900, compound=LEFT, padx=5, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=co1, fg=co4)
 
 app_logo.place(x=0, y=0)
+
+################# Porcentagem ####################
+def porcentagem():
+    l_nome = Label(frameMeio, text="Porcentagem da receita gasta", height=1, anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+
 
 ################# Inicia o loop da interface ####################
 janela.mainloop()
