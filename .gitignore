@@ -1,0 +1,16 @@
+# PyInstaller
+/dist/
+/build/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Executáveis
+*.exe
+*.msi
+
+# Sistema
+.DS_Store
+Thumbs.db

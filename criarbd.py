@@ -1,27 +1,25 @@
 import sqlite3 as lite  # Importando SQLite
-# def limpa(): return print("\033[2J\033[;H", end='')
-# limpa()
+
 """ Projeto: Controle de Despesas Pessoal
     @Autor: Orlando Namba              """
-# -------------------------------------------------------------------------S-----
 
-# Criando coneccao
+# Criando conexão
 con = lite.connect('dados.db')
 
-# Criando tebela de categoria
+# Criando tabela de categoria
 with con:
     cur = con.cursor()
     cur.execute(
-        "CREATE TABLE Categoria(id INTEGER PRIMARY KEY, nome TEXT)")
+        "CREATE TABLE IF NOT EXISTS Categoria(id INTEGER PRIMARY KEY, nome TEXT)")
 
-# Criando tebela de receita
+# Criando tabela de receita
 with con:
     cur = con.cursor()
     cur.execute(
-        "CREATE TABLE Receitas(id INTEGER PRIMARY KEY, categoria TEXT, adicionando_em DATE, valor DECIMAL)")
+        "CREATE TABLE IF NOT EXISTS Receitas(id INTEGER PRIMARY KEY, categoria TEXT, adicionando_em DATE, valor DECIMAL)")
 
-# Criando tebela de gasto
+# Criando tabela de gasto
 with con:
     cur = con.cursor()
     cur.execute(
-        "CREATE TABLE Gastos(id INTEGER PRIMARY KEY, categoria TEXT, retirado_em DATE, valor DECIMAL)")
+        "CREATE TABLE IF NOT EXISTS Gastos(id INTEGER PRIMARY KEY, categoria TEXT, retirado_em DATE, valor DECIMAL)")
